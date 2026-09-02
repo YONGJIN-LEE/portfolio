@@ -1,0 +1,627 @@
+<title>이용진 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ground:#E6E9ED;
+    --surface:#FBFCFD;
+    --ink:#1B2531;
+    --ink-soft:#57636F;
+    --ink-faint:#8B96A1;
+    --line:#C9D0D8;
+    --line-soft:#E0E4E9;
+    --accent:#B4491F;
+    --accent-soft:#9E3D18;
+    --grid:#8FA6B4;
+
+    --sans:"IBM Plex Sans KR","IBM Plex Sans",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+    --fs-eyebrow:.72rem;
+    --measure:40em;
+  }
+
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0E151E;
+      --surface:#161F2B;
+      --ink:#E2E7EC;
+      --ink-soft:#93A0AD;
+      --ink-faint:#606E7C;
+      --line:#283543;
+      --line-soft:#1E2A37;
+      --accent:#F0832F;
+      --accent-soft:#F7A15C;
+      --grid:#38505F;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0E151E;
+    --surface:#161F2B;
+    --ink:#E2E7EC;
+    --ink-soft:#93A0AD;
+    --ink-faint:#606E7C;
+    --line:#283543;
+    --line-soft:#1E2A37;
+    --accent:#F0832F;
+    --accent-soft:#F7A15C;
+    --grid:#38505F;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.68;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent);color:#fff;}
+  a{color:var(--accent);text-underline-offset:.18em;text-decoration-thickness:.06em;}
+  a:hover{color:var(--accent-soft);}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:1px;}
+  h1,h2,h3{margin:0;font-weight:700;line-height:1.2;text-wrap:balance;letter-spacing:-.01em;}
+  p{margin:0;text-wrap:pretty;}
+  .kr{word-break:keep-all;}
+
+  .sheet{
+    max-width:940px;
+    margin:0 auto;
+    background:var(--surface);
+    border-inline:1px solid var(--line-soft);
+    box-shadow:0 1px 44px rgba(20,30,45,.07);
+    padding:clamp(30px,6vw,74px) clamp(24px,6vw,76px) clamp(40px,7vw,88px);
+    position:relative;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sheet{box-shadow:none;}}
+  :root[data-theme="dark"] .sheet{box-shadow:none;}
+
+  /* ---- identity ---- */
+  .id{
+    position:relative;
+    padding-bottom:clamp(28px,5vw,44px);
+    border-bottom:1px solid var(--line);
+  }
+  .grid-bg{
+    position:absolute;
+    inset:-40px -20px auto -20px;
+    height:280px;
+    pointer-events:none;
+    background-image:
+      linear-gradient(var(--grid) 1px,transparent 1px),
+      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:34px 34px;
+    opacity:.07;
+    -webkit-mask-image:linear-gradient(180deg,#000,transparent 78%);
+    mask-image:linear-gradient(180deg,#000,transparent 78%);
+  }
+  .id-crosshair{
+    position:absolute;
+    top:-6px;right:-4px;
+    width:clamp(66px,12vw,104px);
+    height:auto;
+    color:var(--accent);
+    opacity:.5;
+  }
+  .id > *{position:relative;}
+  .eyebrow{
+    display:block;
+    font-family:var(--mono);
+    font-size:var(--fs-eyebrow);
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:1.1em;
+  }
+  .id h1{
+    font-size:clamp(2.5rem,7vw,3.5rem);
+    letter-spacing:-.02em;
+    margin-bottom:.5em;
+  }
+  .tagline{
+    max-width:var(--measure);
+    font-size:1.1rem;
+    color:var(--ink-soft);
+    margin-bottom:1.8em;
+  }
+  .spec{
+    margin:0;
+    display:grid;
+    gap:.5em 2em;
+    max-width:var(--measure);
+  }
+  .spec > div{
+    display:flex;
+    gap:1em;
+    align-items:baseline;
+    border-top:1px solid var(--line-soft);
+    padding-top:.5em;
+  }
+  .spec dt{
+    flex:0 0 3.6em;
+    font-family:var(--mono);
+    font-size:.7rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .spec dd{margin:0;font-size:.92rem;color:var(--ink);}
+
+  /* ---- sections ---- */
+  main{display:flex;flex-direction:column;gap:clamp(44px,7vw,72px);padding-top:clamp(44px,7vw,64px);}
+  .sec-head{margin-bottom:clamp(22px,3.5vw,34px);}
+  .sec-head .eyebrow{margin-bottom:.7em;}
+  .sec-head h2{font-size:clamp(1.5rem,3.6vw,1.9rem);}
+  .sec-head .note{margin-top:.7em;color:var(--ink-soft);max-width:var(--measure);font-size:.98rem;}
+
+  /* ---- stats ---- */
+  .stats{
+    list-style:none;margin:0 0 clamp(30px,4vw,40px);padding:0;
+    display:grid;grid-template-columns:repeat(3,1fr);
+    border:1px solid var(--line);
+  }
+  .stats li{padding:1.1em 1.2em;display:flex;flex-direction:column;gap:.25em;}
+  .stats li + li{border-left:1px solid var(--line);}
+  .stats .n{
+    font-family:var(--mono);font-weight:500;
+    font-size:clamp(1.8rem,4.5vw,2.5rem);
+    font-variant-numeric:tabular-nums;line-height:1;color:var(--ink);
+  }
+  .stats .n em{font-style:normal;color:var(--accent);}
+  .stats .l{font-size:.74rem;color:var(--ink-soft);line-height:1.4;}
+
+  /* ---- pillars ---- */
+  .pillars{display:grid;gap:1.6em;}
+  @media (min-width:720px){.pillars{grid-template-columns:repeat(3,1fr);gap:2em;}}
+  .pillars h3{font-size:1.02rem;margin-bottom:.55em;display:flex;flex-direction:column;gap:.5em;}
+  .pillars .k{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);font-weight:500;
+  }
+  .pillars p{font-size:.92rem;color:var(--ink-soft);}
+
+  /* ---- work / jobs ---- */
+  .jobs{display:flex;flex-direction:column;gap:clamp(34px,5vw,52px);}
+  .job{position:relative;}
+  .job-head{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:.5em 1em;
+    padding-bottom:.9em;margin-bottom:1.4em;
+    border-bottom:1px solid var(--line);
+  }
+  .job-head .co{font-size:1.18rem;font-weight:700;}
+  .job-head .role{font-size:.86rem;color:var(--ink-soft);}
+  .job-head .period{
+    margin-left:auto;
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;
+    color:var(--ink-faint);white-space:nowrap;
+  }
+  .job-sub{
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-faint);margin:1.8em 0 1em;
+  }
+  .job-sub:first-of-type{margin-top:0;}
+
+  .proj{
+    border-left:1px solid var(--line);
+    padding:.15em 0 .15em 1.15em;
+    margin-bottom:1.15em;
+  }
+  .proj:last-child{margin-bottom:0;}
+  .proj-title{
+    font-size:.98rem;font-weight:600;color:var(--ink);
+    margin-bottom:.15em;
+  }
+  .proj-role{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;
+    color:var(--accent);margin-bottom:.4em;
+  }
+  .proj-desc{font-size:.9rem;color:var(--ink-soft);}
+  .proj-desc .vid{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;
+    white-space:nowrap;
+  }
+
+  /* ---- method ---- */
+  .method-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.15em;max-width:var(--measure);}
+  .method-list li{display:flex;gap:.9em;font-size:.95rem;}
+  .method-list li::before{
+    content:"—";font-family:var(--mono);color:var(--accent);flex:none;
+  }
+  .method-list b{font-weight:600;color:var(--ink);}
+  .method-list span{color:var(--ink-soft);}
+
+  /* ---- skills ---- */
+  .skills-grid{display:grid;gap:1.1em;}
+  .skills-row{display:grid;grid-template-columns:5.5em 1fr;gap:1em;align-items:start;border-top:1px solid var(--line-soft);padding-top:1em;}
+  .skills-row dt{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);
+  }
+  .skills-row dd{margin:0;display:flex;flex-wrap:wrap;gap:.5em;}
+  .tag{
+    font-size:.8rem;color:var(--ink);
+    border:1px solid var(--line);
+    padding:.24em .7em;
+    line-height:1.4;
+  }
+
+  /* ---- education ---- */
+  .edu-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;}
+  .edu-list li{
+    display:grid;grid-template-columns:8.5em 1fr;gap:1.2em;
+    padding:.95em 0;border-top:1px solid var(--line-soft);
+    font-size:.92rem;
+  }
+  .edu-list li:first-child{border-top:0;}
+  .edu-list .when{font-family:var(--mono);font-size:.74rem;color:var(--ink-faint);letter-spacing:.02em;padding-top:.15em;}
+  .edu-list .what b{font-weight:600;}
+  .edu-list .what span{color:var(--ink-soft);}
+
+  /* ---- footer ---- */
+  footer{
+    margin-top:clamp(48px,8vw,80px);
+    padding-top:1.6em;
+    border-top:1px solid var(--line);
+    display:flex;flex-wrap:wrap;gap:.4em 1.4em;
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.03em;
+    color:var(--ink-faint);
+  }
+  footer a{color:var(--ink-soft);}
+  footer a:hover{color:var(--accent);}
+
+  /* ---- motion ---- */
+  .id-crosshair{opacity:.5;}
+  @media (prefers-reduced-motion:no-preference){
+    .id > *{opacity:0;transform:translateY(10px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards;}
+    .id > .grid-bg{animation:none;opacity:.07;transform:none;}
+    .id > *:nth-child(2){animation-delay:.04s;}
+    .id > *:nth-child(3){animation-delay:.09s;}
+    .id > *:nth-child(4){animation-delay:.14s;}
+    .id > *:nth-child(5){animation-delay:.19s;}
+    .id-crosshair{opacity:0;transform:none;animation:xhair 1s ease .35s forwards;}
+    .anim .job,.anim .pillars,.anim .stats,.anim .method-list,.anim .skills-grid,.anim .edu-list{
+      opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;
+    }
+    .anim .in{opacity:1;transform:none;}
+  }
+  @keyframes rise{to{opacity:1;transform:none;}}
+  @keyframes xhair{to{opacity:.5;}}
+
+  @media (max-width:560px){
+    .stats{grid-template-columns:1fr;}
+    .stats li + li{border-left:0;border-top:1px solid var(--line);}
+    .job-head .period{margin-left:0;flex-basis:100%;}
+    .skills-row,.edu-list li{grid-template-columns:1fr;gap:.4em;}
+  }
+
+  /* ---- print ---- */
+  @page{margin:14mm 15mm;}
+  @media print{
+    :root{
+      --ground:#fff;--surface:#fff;--ink:#161616;--ink-soft:#3a3a3a;--ink-faint:#5a5a5a;
+      --line:#bcbcbc;--line-soft:#dcdcdc;--accent:#1a1a1a;--accent-soft:#1a1a1a;--grid:transparent;
+    }
+    *{animation:none!important;transition:none!important;}
+    .id > *,
+    .anim .job,.anim .pillars,.anim .stats,.anim .method-list,.anim .skills-grid,.anim .edu-list{
+      opacity:1!important;transform:none!important;
+    }
+    body{font-size:11pt;line-height:1.5;}
+    .sheet{max-width:none;border:0;box-shadow:none;padding:0;}
+    .grid-bg,.id-crosshair{display:none;}
+    main{gap:24px;padding-top:24px;}
+    .job,.proj,.pillars article,.edu-list li,.method-list li{break-inside:avoid;}
+    .sec-head{break-inside:avoid;break-after:avoid;}
+    footer{margin-top:22px;}
+    .stats{border-color:#bcbcbc;}
+    a{color:inherit;text-decoration:underline;}
+    a[href^="http"]::after{content:" " attr(href);font-size:.72em;color:#777;overflow-wrap:anywhere;}
+  }
+</style>
+
+<div class="sheet">
+
+  <header class="id">
+    <div class="grid-bg" aria-hidden="true"></div>
+    <svg class="id-crosshair" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="60" cy="60" r="2.6" fill="currentColor"/>
+      <path d="M60 8 V40 M60 80 V112 M8 60 H40 M80 60 H112" stroke="currentColor" stroke-width="1.4"/>
+    </svg>
+
+    <span class="eyebrow">Project Manager · XR / Robotics</span>
+    <h1>이용진</h1>
+    <p class="tagline kr">산업 현장의 XR·AR·VR과 자율주행 로봇 프로젝트를, 제안(RFP)부터 현장 납품·운영까지 끌고 가는 프로젝트 매니저입니다.</p>
+
+    <dl class="spec">
+      <div><dt>현재</dt><dd class="kr">(주)버넥트 사업센터 부장 · 개발 PM (2021.11~)</dd></div>
+      <div><dt>도메인</dt><dd class="kr">XR·AR·VR · 디지털 트윈 · 자율주행 로봇(AMR) 관제 · 설비 유지보수 매뉴얼</dd></div>
+      <div><dt>학업</dt><dd class="kr">건국대학교 실감AX융합대학원 실감AX공학 석사과정</dd></div>
+      <div><dt>연락</dt><dd><a href="mailto:maximus0624@gmail.com">maximus0624@gmail.com</a> · <a href="https://yongjinlee.notion.site/fa3ff7b8407f44c9a291a2e5fee19852">이력서 (Notion)</a></dd></div>
+    </dl>
+  </header>
+
+  <main>
+
+    <section class="profile">
+      <div class="sec-head">
+        <span class="eyebrow">Profile</span>
+        <h2>요약</h2>
+      </div>
+
+      <ul class="stats">
+        <li><span class="n">11</span><span class="l">PM·기획 경력 (년차)</span></li>
+        <li><span class="n">20<em>+</em></span><span class="l">누적 발주·고객사</span></li>
+        <li><span class="n">4</span><span class="l">핵심 도메인 (XR·트윈·로봇·산업 매뉴얼)</span></li>
+      </ul>
+
+      <div class="pillars">
+        <article>
+          <h3><span class="k">총괄</span>XR 프로젝트 매니지먼트</h3>
+          <p class="kr">RFP 분석과 제안서 작성부터 요구사항 정의, 일정(WBS), 콘텐츠 QA, 현장 검수까지 프로젝트 전 구간을 관리합니다. 공공 발주와 대기업 제조 현장 양쪽 경험이 있습니다.</p>
+        </article>
+        <article>
+          <h3><span class="k">도메인</span>현장 언어의 번역</h3>
+          <p class="kr">디지털 트윈, 설비 유지보수 AR, 검사 공정 XR 매뉴얼, 자율주행 로봇 관제. 제조·물류·발전 현장의 용어와 제약을 이해하고 개발팀에 옮깁니다.</p>
+        </article>
+        <article>
+          <h3><span class="k">사업화</span>제품·표준 관점</h3>
+          <p class="kr">AR 콘텐츠 저작 플랫폼 'VOOMB' 신사업 기획과 대외협력, AR 글래스 표준화(KEA) 평가 과제 등 단발 프로젝트를 넘어선 일도 함께 해왔습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="work">
+      <div class="sec-head">
+        <span class="eyebrow">Selected Work</span>
+        <h2>대표 프로젝트</h2>
+        <p class="note kr">최근 XR·로봇 중심으로 추렸습니다. 역할은 모두 기획·PM이며, 별도 표기가 없으면 프로젝트 전 구간(제안~검수)을 담당했습니다.</p>
+      </div>
+
+      <div class="jobs">
+
+        <article class="job">
+          <div class="job-head">
+            <span class="co">(주)버넥트</span>
+            <span class="role kr">사업센터 부장 · 개발 PM</span>
+            <span class="period">2021.11 — 재직 중</span>
+          </div>
+
+          <p class="job-sub">공공 · 전시형 XR</p>
+          <div class="proj">
+            <p class="proj-title kr">부산광역시교육청 메타버스 교육 플랫폼 구축</p>
+            <p class="proj-role">공간 구현 파트 PM</p>
+            <p class="proj-desc kr">학교·교실 3D 공간 설계와 구축 일정·검수를 관리했습니다.</p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">한국수자원공사 물관리 플랫폼 디지털 트윈</p>
+            <p class="proj-role">AR/VR 가시화 PM</p>
+            <p class="proj-desc kr">수처리·댐 시설을 3D로 옮기고 관제 데이터와 정합해 보여주는 가시화 시나리오를 설계했습니다.</p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">국립문화유산연구원 문화재 XR 콘텐츠 제작</p>
+            <p class="proj-role">콘텐츠 제작 PM</p>
+            <p class="proj-desc kr">문화재 3D 복원 데이터를 기반으로 한 XR 체험 콘텐츠를 기획·제작 관리했습니다.</p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">익산시청 미륵사지 XR 체험관</p>
+            <p class="proj-role">운영 · 관리 PM</p>
+            <p class="proj-desc kr">상설 체험관 콘텐츠 운영과 현장 이슈 대응을 맡았습니다.</p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">건국대학교 · 경상국립대학교 메타버스 플랫폼 구축</p>
+            <p class="proj-role">구축 PM</p>
+            <p class="proj-desc kr">대학 캠퍼스·강의 공간을 옮긴 메타버스 플랫폼 구축을 관리했습니다.</p>
+          </div>
+
+          <p class="job-sub">산업 현장형 AR</p>
+          <div class="proj">
+            <p class="proj-title kr">한화토탈 · LS일렉트릭 설비 운영·유지보수 AR</p>
+            <p class="proj-role">제작 PM (POC 포함)</p>
+            <p class="proj-desc kr">플랜트 설비 점검·운영 절차를 AR 매뉴얼로 옮기는 콘텐츠 제작을 관리했습니다.</p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">롯데건설 사우나 기계실 설비 AR 매뉴얼</p>
+            <p class="proj-role">제작 PM</p>
+            <p class="proj-desc kr">기계실 설비 점검 동선을 따라가는 AR 작업 가이드를 제작했습니다.</p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">코리아써키트 · 한국타이어 · 코미코 검사 공정 XR 매뉴얼</p>
+            <p class="proj-role">제작 PM</p>
+            <p class="proj-desc kr">검사·제조 공정의 작업 표준을 XR 매뉴얼 콘텐츠로 제작했습니다.</p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">KEA 표준 AR기기 사용자 평가 프로그램</p>
+            <p class="proj-role">제작 PM</p>
+            <p class="proj-desc kr">AR 글래스 표준화 평가에 쓰이는 사용자 평가용 콘텐츠와 진행 프로토콜을 만들었습니다.</p>
+          </div>
+
+          <p class="job-sub">신사업</p>
+          <div class="proj">
+            <p class="proj-title kr">AR 콘텐츠 저작 플랫폼 'VOOMB'</p>
+            <p class="proj-role">사업화 기획 · 대외협력</p>
+            <p class="proj-desc kr">B2C AR 콘텐츠 제작·유통 플랫폼의 사업화 기획과 파트너십 협력을 담당했습니다.</p>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <span class="co">(주)시스콘</span>
+            <span class="role kr">기획디자인팀 책임 (과장)</span>
+            <span class="period">2020.11 — 2021.11</span>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">물류 자율주행 로봇 관제 시스템 리뉴얼</p>
+            <p class="proj-role">기획</p>
+            <p class="proj-desc kr">로봇 미션 생성·관리 파트를 다시 설계했습니다. 운영자 UI와 스케줄링 흐름 개선. <a class="vid" href="https://youtu.be/AsnQ8JvwbfE">▶ 영상</a></p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">현대자동차 EV 배터리 제조 공정 AMR 셋업</p>
+            <p class="proj-role">현장 PL</p>
+            <p class="proj-desc kr">배터리 라인 내 AMR 동선·설비 연동 셋업을 현장에서 이끌었습니다. <a class="vid" href="https://youtu.be/WQO8rzjVO5k">▶ 영상</a></p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">현대백화점 인천공항 면세점 자율주행 로봇</p>
+            <p class="proj-role">서비스 기획</p>
+            <p class="proj-desc kr">매장 내 안내·운반 로봇 서비스 시나리오를 기획했습니다.</p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">인천교통공사 지하철 역사 안내 로봇</p>
+            <p class="proj-role">서비스 기획</p>
+            <p class="proj-desc kr">역사 환경에 맞춘 안내 로봇 동선·인터랙션 시나리오를 기획했습니다.</p>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <span class="co">이노플라이(주)</span>
+            <span class="role kr">선임 매니저</span>
+            <span class="period">2020.02 — 2020.10</span>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">신규 LCC 'Aero-K' 재고 관리 시스템 · 기내 면세 POS</p>
+            <p class="proj-role">기획 PM</p>
+            <p class="proj-desc kr">취항 준비에 맞춰 물류 재고 관리와 기내 면세 POS 시스템을 기획했습니다.</p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">TravelMart 온라인 면세 기내 수령 서비스</p>
+            <p class="proj-role">서비스 기획</p>
+            <p class="proj-desc kr">온라인 주문 후 기내에서 수령하는 플로우를 설계했습니다. <a class="vid" href="https://youtu.be/3kGPpRr7Q0E">▶ 영상</a></p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">에어부산 · 티웨이 기내 VOD 서비스</p>
+            <p class="proj-role">운영</p>
+            <p class="proj-desc kr">개인 스마트폰 기반 기내 엔터테인먼트 제공 서비스를 운영했습니다.</p>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <span class="co">(주)포더비전</span>
+            <span class="role kr">BD팀 매니저</span>
+            <span class="period">2018.08 — 2020.02</span>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">한국남동발전 영흥화력발전소 시뮬레이터 연동형 VR 운용 교육</p>
+            <p class="proj-role">콘텐츠 기획 · 매니징</p>
+            <p class="proj-desc kr">발전 설비 운전 절차를 시뮬레이터와 연동한 VR 교육 콘텐츠로 만들었습니다. <a class="vid" href="https://youtu.be/tE0tBFgmTfo">▶ 영상</a></p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">몽골 오유톨고이 광산 화재 대피 훈련 VR</p>
+            <p class="proj-role">콘텐츠 PM</p>
+            <p class="proj-desc kr">갱내 화재 상황의 대피 훈련 시나리오를 VR 콘텐츠로 제작했습니다. <a class="vid" href="https://youtu.be/A0VehAkD4nY">▶ 영상</a></p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">VR 피트니스 'VRUN' 실사 영상 콘텐츠</p>
+            <p class="proj-role">콘텐츠 · 촬영 PM</p>
+            <p class="proj-desc kr">콘텐츠 기획, 촬영 장비 제작, 촬영지 선정, 현장 촬영을 맡았습니다. <a class="vid" href="https://youtu.be/Xlo2aGTRW-o">▶ 영상</a></p>
+          </div>
+          <div class="proj">
+            <p class="proj-title kr">한국전력공사 갈등조정실 대민 홍보 VR</p>
+            <p class="proj-role">콘텐츠 기획 참여</p>
+            <p class="proj-desc kr">송전 설비에 대한 이해를 돕는 대민 홍보용 VR 콘텐츠 기획에 참여했습니다. <a class="vid" href="https://youtu.be/QEzrZ3niQ5c">▶ 영상</a></p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="method">
+      <div class="sec-head">
+        <span class="eyebrow">How I Work</span>
+        <h2>일하는 방식</h2>
+      </div>
+      <ul class="method-list">
+        <li><span class="kr"><b>제안서를 직접 쓴다.</b> RFP 분석, 기술 구성, 예산, WBS까지 PM이 초안을 잡아야 착수 후에 흔들리지 않습니다.</span></li>
+        <li><span class="kr"><b>현장에 간다.</b> 영흥화력, 현대차 배터리 라인, 미륵사지. 설비와 동선을 눈으로 봐야 콘텐츠 시나리오가 나옵니다.</span></li>
+        <li><span class="kr"><b>콘텐츠는 검수로 완성된다.</b> 3D 스캔·정합·인터랙션을 체크리스트로 QA합니다. "되는 것"과 "납품 가능한 것"은 다릅니다.</span></li>
+        <li><span class="kr"><b>하드웨어를 피하지 않는다.</b> AMR 셋업, AR 글래스 평가, 촬영 장비 제작. 기구가 걸린 일은 일정 버퍼를 먼저 잡습니다.</span></li>
+      </ul>
+    </section>
+
+    <section class="skills">
+      <div class="sec-head">
+        <span class="eyebrow">Capabilities</span>
+        <h2>역량 &amp; 도구</h2>
+      </div>
+      <dl class="skills-grid">
+        <div class="skills-row">
+          <dt>관리</dt>
+          <dd>
+            <span class="tag">프로젝트 관리</span><span class="tag">사업기획</span><span class="tag">RFP · 제안서</span><span class="tag">요구사항 정의</span><span class="tag">PMO</span><span class="tag">일정 · WBS</span><span class="tag">트러블슈팅</span><span class="tag">대외협력</span>
+          </dd>
+        </div>
+        <div class="skills-row">
+          <dt>도구</dt>
+          <dd>
+            <span class="tag">Figma</span><span class="tag">Microsoft 365</span><span class="tag">XR 저작도구 협업</span><span class="tag">영상 기획 · 촬영</span>
+          </dd>
+        </div>
+        <div class="skills-row">
+          <dt>도메인</dt>
+          <dd>
+            <span class="tag">XR · AR · VR</span><span class="tag">디지털 트윈</span><span class="tag">메타버스 플랫폼</span><span class="tag">자율주행 로봇(AMR) 관제</span><span class="tag">설비 유지보수 매뉴얼</span><span class="tag">검사 공정</span>
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="edu">
+      <div class="sec-head">
+        <span class="eyebrow">Education &amp; Credentials</span>
+        <h2>학력 &amp; 자격</h2>
+      </div>
+      <ul class="edu-list">
+        <li>
+          <span class="when">2026.03 ~</span>
+          <span class="what kr"><b>건국대학교 실감AX융합대학원</b> — 실감AX공학 석사과정 <span>(재학 중)</span></span>
+        </li>
+        <li>
+          <span class="when">2024.05 ~ 2026.02</span>
+          <span class="what kr"><b>국가평생교육진흥원대학교</b> — 컴퓨터공학과 학사 <span>(4년제 편입 · 졸업예정)</span></span>
+        </li>
+        <li>
+          <span class="when">~ 2009.02</span>
+          <span class="what kr"><b>부천대학교</b> — 관광경영학과 전문학사</span>
+        </li>
+        <li>
+          <span class="when">자격</span>
+          <span class="what kr">프리다이빙 Free Diver Lv.2 · PADI Advanced · 2종 소형 운전면허</span>
+        </li>
+        <li>
+          <span class="when">병역</span>
+          <span class="what kr">육군 특수전사령부 특전부사관 — 중사 만기전역</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>이용진</span>
+    <a href="mailto:maximus0624@gmail.com">maximus0624@gmail.com</a>
+    <a href="https://yongjinlee.notion.site/fa3ff7b8407f44c9a291a2e5fee19852">yongjinlee.notion.site</a>
+    <span>Updated 2026.09</span>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.documentElement.classList.add('anim');
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.job, .pillars, .stats, .method-list, .skills-grid, .edu-list')
+      .forEach(function(el){ io.observe(el); });
+  })();
+</script>
